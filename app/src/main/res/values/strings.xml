@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Phone shop</string>
+    <string name="product_details">Product Details</string>
+    <string name="best_seller">Best Seller</string>
+</resources>
