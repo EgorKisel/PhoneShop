@@ -1,5 +1,6 @@
-package com.example.phoneshop.model.repo
+package com.example.phoneshop.model.repo.main
 
+import com.example.phoneshop.BASE_URL
 import com.example.phoneshop.model.response.ResponseDTO
 import com.example.phoneshop.viewmodel.StoreViewModel
 import com.google.gson.GsonBuilder
@@ -12,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RepositoryImpl : Repository {
 
     private val api = Retrofit.Builder().apply {
-        baseUrl("https://run.mocky.io/")
+        baseUrl(BASE_URL)
         addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
     }.build().create(PhonesAPI::class.java)
 

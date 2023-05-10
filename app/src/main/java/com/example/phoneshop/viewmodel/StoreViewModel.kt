@@ -2,12 +2,9 @@ package com.example.phoneshop.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.phoneshop.model.repo.Repository
-import com.example.phoneshop.model.repo.RepositoryImpl
+import com.example.phoneshop.model.repo.main.Repository
+import com.example.phoneshop.model.repo.main.RepositoryImpl
 import com.example.phoneshop.model.response.ResponseDTO
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class StoreViewModel(
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),

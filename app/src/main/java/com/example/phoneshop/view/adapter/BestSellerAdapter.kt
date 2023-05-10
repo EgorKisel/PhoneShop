@@ -12,10 +12,17 @@ import coil.transform.RoundedCornersTransformation
 import com.example.phoneshop.R
 import com.example.phoneshop.databinding.BestsellerRecyclerItemBinding
 import com.example.phoneshop.model.response.BestSeller
+import com.example.phoneshop.view.OnItemClickListener
 
 class BestSellerAdapter(
     private var data: List<BestSeller> = listOf()
 ) : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
+
+    private lateinit var onItemClickListener: OnItemClickListener
+
+    fun mSetOnClickListener(listener: OnItemClickListener) {
+        onItemClickListener = listener
+    }
 
     fun setData(dataNew: List<BestSeller>) {
         this.data = dataNew
@@ -39,6 +46,9 @@ class BestSellerAdapter(
                 paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             }
             binding.tvTitleBestseller.text = bestSeller.title
+            binding.root.setOnClickListener {
+                onItemClickListener.onItemClick(bestSeller.id)
+            }
         }
     }
 

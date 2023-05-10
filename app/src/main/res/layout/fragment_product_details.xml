@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical">
 
     <TextView
@@ -17,22 +21,134 @@
         android:id="@+id/recyclerViewProductDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <com.google.android.material.card.MaterialCardView
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/phoneName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="#010035"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Galaxy Note20 Ultra" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageProc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_proc"
+                app:layout_constraintEnd_toStartOf="@id/imageCamera"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_camera"
+                app:layout_constraintEnd_toStartOf="@id/imageRam"
+                app:layout_constraintStart_toEndOf="@id/imageProc"
+                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageRam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_ram1"
+                app:layout_constraintEnd_toStartOf="@id/imageSd"
+                app:layout_constraintStart_toEndOf="@id/imageCamera"
+                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageSd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_sd_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/imageRam"
+                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+
+            <TextView
+                android:id="@+id/tvProc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@id/tvCamera"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageProc" />
+
+            <TextView
+                android:id="@+id/tvCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@id/tvRam"
+                app:layout_constraintStart_toEndOf="@id/tvProc"
+                app:layout_constraintTop_toBottomOf="@id/imageCamera" />
+
+            <TextView
+                android:id="@+id/tvRam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@id/tvSd"
+                app:layout_constraintStart_toEndOf="@id/tvCamera"
+                app:layout_constraintTop_toBottomOf="@id/imageRam" />
+
+            <TextView
+                android:id="@+id/tvSd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/tvRam"
+                app:layout_constraintTop_toBottomOf="@id/imageSd" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/phoneParametersBarrier"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tvCamera, tvProc, tvRam, tvSd" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToBasket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                app:backgroundTint="#FF6E4E"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/phoneParametersBarrier" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

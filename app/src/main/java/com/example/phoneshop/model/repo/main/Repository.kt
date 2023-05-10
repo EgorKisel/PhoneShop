@@ -1,4 +1,4 @@
-package com.example.phoneshop.model.repo
+package com.example.phoneshop.model.repo.main
 
 import com.example.phoneshop.viewmodel.StoreViewModel
 
