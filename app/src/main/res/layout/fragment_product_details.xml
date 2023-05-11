@@ -49,6 +49,16 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Galaxy Note20 Ultra" />
 
+            <RatingBar
+                android:id="@+id/rating"
+                android:theme="@style/MyRatingBar"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageProc"
                 android:layout_width="wrap_content"
@@ -58,7 +68,7 @@
                 android:src="@drawable/ic_proc"
                 app:layout_constraintEnd_toStartOf="@id/imageCamera"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+                app:layout_constraintTop_toBottomOf="@id/rating" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageCamera"
@@ -69,7 +79,7 @@
                 android:src="@drawable/ic_camera"
                 app:layout_constraintEnd_toStartOf="@id/imageRam"
                 app:layout_constraintStart_toEndOf="@id/imageProc"
-                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+                app:layout_constraintTop_toBottomOf="@id/rating" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageRam"
@@ -80,7 +90,7 @@
                 android:src="@drawable/ic_ram1"
                 app:layout_constraintEnd_toStartOf="@id/imageSd"
                 app:layout_constraintStart_toEndOf="@id/imageCamera"
-                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+                app:layout_constraintTop_toBottomOf="@id/rating" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageSd"
@@ -92,7 +102,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toEndOf="@id/imageRam"
-                app:layout_constraintTop_toBottomOf="@id/phoneName" />
+                app:layout_constraintTop_toBottomOf="@id/rating" />
 
             <TextView
                 android:id="@+id/tvProc"

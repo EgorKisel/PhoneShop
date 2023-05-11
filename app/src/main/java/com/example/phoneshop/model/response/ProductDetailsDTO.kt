@@ -21,7 +21,7 @@ data class ProductDetailsDTO(
     @SerializedName("price")
     val price: Int,
     @SerializedName("rating")
-    val rating: Double,
+    val rating: Float,
     @SerializedName("sd")
     val sd: String,
     @SerializedName("ssd")

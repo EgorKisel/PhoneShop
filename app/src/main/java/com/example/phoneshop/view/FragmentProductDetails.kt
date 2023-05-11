@@ -62,6 +62,7 @@ class FragmentProductDetails : Fragment() {
                     tvSd.text = state.productDetailsDTO.sd
                     tvRam.text = state.productDetailsDTO.ssd
                     addToBasket.text = "Add to Cart   $" + state.productDetailsDTO.price.toString()
+                    rating.rating = state.productDetailsDTO.rating
                 }
 
             }
