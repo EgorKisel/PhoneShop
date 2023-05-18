@@ -2,4 +2,11 @@
     <string name="app_name">Phone shop</string>
     <string name="product_details">Product Details</string>
     <string name="best_seller">Best Seller</string>
+    <string name="filter">filter</string>
+    <string name="done">Done</string>
+    <string name="filter_options">Filter options</string>
+    <string name="brand">Brand</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string name="hot_sales">Hot sales</string>
 </resources>
