@@ -2,12 +2,16 @@ package com.example.phoneshop.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.phoneshop.KEY_BUNDLE
+import com.example.phoneshop.R
 import com.example.phoneshop.databinding.FragmentProductDetailsBinding
 import com.example.phoneshop.view.adapter.ProductDetailsPhonesAdapter
 import com.example.phoneshop.viewmodel.ProductDetailsState
@@ -42,11 +46,25 @@ class FragmentProductDetails : Fragment() {
             getLiveData().observe(viewLifecycleOwner, observer)
             //getDetails()
         }
+
+        setHasOptionsMenu(true)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_details, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.back -> {}
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun renderData(state: ProductDetailsState) {
