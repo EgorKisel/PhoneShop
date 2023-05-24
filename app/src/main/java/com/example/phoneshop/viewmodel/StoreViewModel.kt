@@ -20,6 +20,9 @@ class StoreViewModel(
     fun getBestSeller() {
         repository.getBestSellerPhones(callback)
     }
+    fun getCategories() {
+        repository.getCategories()
+    }
 
     private val callback = object : Callback {
 

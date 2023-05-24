@@ -1,6 +1,8 @@
 package com.example.phoneshop.model.repo.main
 
 import com.example.phoneshop.BASE_URL
+import com.example.phoneshop.data.Category
+import com.example.phoneshop.data.getMyCategories
 import com.example.phoneshop.model.response.ResponseDTO
 import com.example.phoneshop.viewmodel.StoreViewModel
 import com.google.gson.GsonBuilder
@@ -50,4 +52,6 @@ class RepositoryImpl : Repository {
             }
         })
     }
+
+    override fun getCategories(): List<Category> = getMyCategories()
 }

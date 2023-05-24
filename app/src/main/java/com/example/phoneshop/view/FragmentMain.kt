@@ -14,9 +14,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.phoneshop.KEY_BUNDLE
 import com.example.phoneshop.R
+import com.example.phoneshop.data.getMyCategories
 import com.example.phoneshop.databinding.FragmentMainBinding
 import com.example.phoneshop.view.adapter.BestSellerAdapter
 import com.example.phoneshop.view.adapter.HomeStoreAdapter
+import com.example.phoneshop.view.adapter.SelectCategoryAdapter
 import com.example.phoneshop.viewmodel.AppState
 import com.example.phoneshop.viewmodel.StoreViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -30,6 +32,7 @@ class FragmentMain : Fragment(), OnItemClickListener {
     }
     private val adapterHome = BestSellerAdapter()
     private val adapterBest = HomeStoreAdapter()
+    private val adapterCategory = SelectCategoryAdapter()
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     override fun onCreateView(
@@ -47,6 +50,7 @@ class FragmentMain : Fragment(), OnItemClickListener {
         binding.recyclerHomeStorePhones.adapter = adapterHome
         adapterHome.mSetOnClickListener(this)
         binding.recyclerBestSeller.adapter = adapterBest
+        binding.recyclerSelectCategory.adapter = adapterCategory
         viewModel.apply {
             getLiveData().observe(viewLifecycleOwner, observer)
             getHomeStore()
@@ -88,6 +92,7 @@ class FragmentMain : Fragment(), OnItemClickListener {
             is AppState.Success -> {
                 adapterHome.setData(state.responseDTO.bestSeller)
                 adapterBest.setData(state.responseDTO.homeStore)
+                adapterCategory.setData(getMyCategories())
             }
         }
     }
